@@ -8,11 +8,11 @@ var app = express();
 
 //Middleware
 app.use(express.static(process.cwd() + '/../client'));
-
+console.log(process.cwd());
 
 //Endpoints
 app.get('/api', function(req, res) {
-    res.sendFile('Hello API');
+    res.send('Hello API');
 });
 
 
