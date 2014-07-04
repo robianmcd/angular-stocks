@@ -7,8 +7,8 @@ var app = express();
 
 
 //Middleware
-app.use(express.static(process.cwd() + '/../client'));
-console.log(process.cwd());
+app.use(express.static(__dirname + '/../client'));
+console.log(__dirname);
 
 //Endpoints
 app.get('/api', function(req, res) {
