@@ -1,0 +1,47 @@
+<div ng-controller="DetailsCtrl as ctrl">
+
+    <h1 class="text-center">Details</h1>
+
+    Stock:
+    <form class="form-group">
+        <select class="form-control" ng-model="ctrl.selectedStockInfo" ng-change="ctrl.onSelectedStockChange()" ng-options="stockInfo as stockInfo.name for stockInfo in ctrl.stocksInfo"></select>
+    </form>
+    
+    
+    <div ng-show="ctrl.selectedStockInfo" class="panel panel-info">
+        <div class="panel-heading">
+            Stock Details
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="row row-slide" ng-class="ctrl.rowAnimateClass">
+                    <label class="col-xs-2">Name</label>
+                    <span class="col-xs-10">{{ctrl.selectedStockInfo.name}}</span>
+                </div>
+                <div class="row row-slide" ng-class="ctrl.rowAnimateClass">
+                    <label class="col-xs-2">Change</label>
+                    <span class="col-xs-10">{{ctrl.selectedStockInfo.change}}</span>
+                </div>
+                <div class="row row-slide" ng-class="ctrl.rowAnimateClass">
+                    <label class="col-xs-2">Percent Change</label>
+                    <span class="col-xs-10">{{ctrl.selectedStockInfo.percentChange}}%</span>
+                </div>
+                <div class="row row-slide" ng-class="ctrl.rowAnimateClass">
+                    <label class="col-xs-2">Value</label>
+                    <span class="col-xs-10">{{ctrl.selectedStockInfo.value}}</span>
+                </div>
+                <div class="row row-slide" ng-class="ctrl.rowAnimateClass">
+                    <label class="col-xs-2">Volume</label>
+                    <span class="col-xs-10">{{ctrl.selectedStockInfo.volume | number}}</span>
+                </div>
+            </form>
+
+            <div stock-chart series="ctrl.stockPrices"></div>
+        </div>
+
+
+    </div>
+
+    
+</div>
+

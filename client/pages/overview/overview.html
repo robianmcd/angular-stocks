@@ -1,0 +1,36 @@
+<div ng-controller="OverviewCtrl as ctrl">
+
+    <h1 class="text-center">Overview</h1>
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="search">Search: </label>
+            <input ng-model="ctrl.search" class="form-control" id="search" placeholder="MSFT">
+        </div>
+    </form>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Change</th>
+                <th>percentChange</th>
+                <th>value</th>
+                <th>volume</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="squish" ng-repeat="stockInfo in ctrl.stocksInfo | filter:ctrl.search" ng-click="ctrl.goToStockDetails(stockInfo)">
+                <td>{{stockInfo.name}}</td>
+                <td>{{stockInfo.symbol}}</td>
+                <td>{{stockInfo.change}}</td>
+                <td>{{stockInfo.percentChange}}</td>
+                <td>{{stockInfo.value}}</td>
+                <td>{{stockInfo.volume | number}}</td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>
+

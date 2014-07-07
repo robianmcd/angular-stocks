@@ -2,10 +2,43 @@
 <html ng-app="stockApp" ng-cloak>
 <head>
     <title>Angular Stocks</title>
+
+    <link rel="stylesheet" type="text/css" href="bower/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <div class="navbar navbar-default" role="navigation" bs-navbar>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/overview" ng-click="viewAnimation = 'slide-right'">MyStocks</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li data-match-route="/overview">
+                    <a href="#/overview" ng-click="viewAnimation = 'slide-right'">Overview</a>
+                </li>
+                <li data-match-route="/details">
+                    <a href="#/details" ng-click="viewAnimation = 'slide-left'">Details</a>
+                </li>
+            </ul>
+        </div>
 
-    hello world
+        <div style="position:relative;">
+            <ng-view ng-class="viewAnimation" class="slide"></ng-view>
+        </div>
+        
+    </div>
+
+    <script src="bower/jquery/dist/jquery.js"></script>
+    <script src="lib/highstock.js"></script>
+    <script src="bower/angular/angular.js"></script>
+    <script src="bower/angular-route/angular-route.js"></script>
+    <script src="bower/angular-animate/angular-animate.js"></script>
+    <script src="bower/angular-strap/dist/angular-strap.js"></script>
+    <script src="bower/angular-strap/dist/angular-strap.tpl.js"></script>
     
+    <script src="app.js"></script>
+    <script src="pages/overview/overviewCtrl.js"></script>
+    <script src="pages/details/detailsCtrl.js"></script>
+    <script src="components/stockChartDirective.js"></script>
 </body>
 </html>
