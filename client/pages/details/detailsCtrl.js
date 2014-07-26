@@ -1,4 +1,4 @@
-var DetailsCtrl = function ($http, $location, $timeout, $rootScope) {
+var DetailsCtrl = function($http, $location, $timeout, $rootScope) {
     var _this = this;
 
     this.$http = $http;
@@ -6,37 +6,38 @@ var DetailsCtrl = function ($http, $location, $timeout, $rootScope) {
     this.$timeout = $timeout;
     this.$rootScope = $rootScope;
 
-    $http.get('api/stocks/info').success(function (data) {
+    $http.get('api/stocks/info').success(function(data) {
         _this.stocksInfo = data;
         var searchedSymbol = $location.search().symbol;
 
         if (searchedSymbol) {
             _this.selectedStockInfo = _this.stocksInfo.filter(
-                function (stockInfo) {
-                    return stockInfo.symbol === searchedSymbol
-                })[0];
+
+            function(stockInfo) {
+                return stockInfo.symbol === searchedSymbol
+            })[0];
             _this.loadStockPricesForSymbol(searchedSymbol);
         }
 
     });
 
-    
 };
 
-DetailsCtrl.prototype.onSelectedStockChange = function () {
+DetailsCtrl.prototype.onSelectedStockChange = function() {
     this.$rootScope.viewAnimation = '';
     this.$location.search('symbol', this.selectedStockInfo.symbol);
 };
 
-DetailsCtrl.prototype.loadStockPricesForSymbol = function (symbol) {
+DetailsCtrl.prototype.loadStockPricesForSymbol = function(symbol) {
     var _this = this;
 
-    this.$http.get('api/stocks/price/' + symbol).success(function (data) {
+    this.$http.get('api/stocks/price/' + symbol).success(function(data) {
         _this.rowAnimateClass = '';
-        _this.$timeout(function () {
+        _this.$timeout(function() {
             _this.rowAnimateClass = 'row-slide-end';
-        },100);
+        }, 100);
 
-        _this.stockPrices = data;
+        console.log(data.dailyPrices);
+        _this.dailyPrices = data.dailyPrices;
     });
-}
+};

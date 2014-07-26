@@ -2,13 +2,22 @@
     "run": {
         "@path": "/.c9/runners",
         "configs": {
-            "json()": {},
+            "json()": {
+                "Test Build": {
+                    "env": {},
+                    "debug": true,
+                    "name": "Test Build",
+                    "command": "./server/server.js",
+                    "runner": "Node.js (default)"
+                }
+            },
             "@inited": "true"
         }
     },
     "share": {
         "@preview": false,
-        "@app": false
+        "@app": false,
+        "@useOwnerSettings": false
     },
     "ace": {
         "@newLineMode": "unix",
@@ -17,11 +26,17 @@
         "@guessTabSize": "true"
     },
     "language": {
-        "@warnLevel": "info"
+        "@warnLevel": "info",
+        "@instanceHighlight": "true",
+        "@undeclaredVars": "true",
+        "@unusedFunctionArgs": "false"
     },
     "build": {
         "@path": "/.c9/builders",
         "@saveall": true,
         "@builder": "auto"
+    },
+    "find.nak": {
+        "@searchLimit": 100
     }
 }
