@@ -3,12 +3,41 @@
         "@path": "/.c9/runners",
         "configs": {
             "json()": {
-                "Test Build": {
-                    "env": {},
+                "app local DB": {
+                    "runner": "Node.js (default)",
+                    "command": "server/server.js",
                     "debug": true,
-                    "name": "Test Build",
-                    "command": "./server/server.js",
-                    "runner": "Node.js (default)"
+                    "name": "app local DB",
+                    "env": {
+                        "mongoUrl": "mongodb://0.0.0.0/angularStocks"
+                    }
+                },
+                "app remote DB": {
+                    "runner": "Node.js (default)",
+                    "command": "server/server.js",
+                    "debug": true,
+                    "env": {
+                        "mongoUrl": "mongodb://admin:angular@ds037627.mongolab.com:37627/heroku_app27052837"
+                    },
+                    "name": "app remote DB"
+                },
+                "init local DB": {
+                    "runner": "Node.js (default)",
+                    "command": "server/initMongo.js",
+                    "debug": true,
+                    "env": {
+                        "mongoUrl": "mongodb://0.0.0.0/angularStocks"
+                    },
+                    "name": "init local DB"
+                },
+                "init remote DB": {
+                    "runner": "Node.js (default)",
+                    "command": "server/initMongo.js",
+                    "debug": true,
+                    "env": {
+                        "mongoUrl": "mongodb://admin:angular@ds037627.mongolab.com:37627/heroku_app27052837"
+                    },
+                    "name": "init remote DB"
                 }
             },
             "@inited": "true"

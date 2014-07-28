@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://' + process.env.IP + '/test');
-mongoose.connect('mongodb://admin:angular@ds037627.mongolab.com:37627/heroku_app27052837');
 
+//Local: mongodb://0.0.0.0/angularStocks
+//Remote: mongodb://admin:angular@ds037627.mongolab.com:37627/heroku_app27052837
+
+mongoose.connect(process.env.mongoUrl);
 
 var StockInfo = require('./models/stockInfo')(mongoose);
 var StockPrices = require('./models/stockPrices')(mongoose);
@@ -91,6 +93,20 @@ var mockStockInfo = [{
     value: 74.69,
     volume: 589952
 }];
+
+if (process.env.mongoUrl === 'mongodb://0.0.0.0/angularStocks') {
+    mockStockInfo.push({
+        symbol: "C9",
+        name: "Cloud 9",
+        change: 0.9,
+        percentChange: 0.9,
+        value: 99.99,
+        volume: 999999
+        
+    });
+    
+    console.log(mockStockInfo);
+}
 
 var generateDailyPrices = function() {
     var now = new Date().getTime();

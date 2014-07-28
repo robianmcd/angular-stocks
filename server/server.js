@@ -5,11 +5,12 @@ var mongoose = require('mongoose');
 
 //Initialize
 var app = express();
-//mongoose.connect('mongodb://' + process.env.IP + '/test');
-mongoose.connect('mongodb://admin:angular@ds037627.mongolab.com:37627/heroku_app27052837');
+console.error(process.env.mongoUrl);
+mongoose.connect(process.env.mongoUrl);
 
 var StockInfo = require('./models/stockInfo')(mongoose);
 var StockPrices = require('./models/stockPrices')(mongoose);
+
 
 //Middleware
 app.use(express.static(__dirname + '/../client'));
