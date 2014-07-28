@@ -5,7 +5,6 @@ var mongoose = require('mongoose');
 
 //Initialize
 var app = express();
-console.error(process.env.mongoUrl);
 mongoose.connect(process.env.mongoUrl);
 
 var StockInfo = require('./models/stockInfo')(mongoose);
