@@ -37,7 +37,6 @@ DetailsCtrl.prototype.loadStockPricesForSymbol = function(symbol) {
             _this.rowAnimateClass = 'row-slide-end';
         }, 100);
 
-        console.log(data.dailyPrices);
         _this.dailyPrices = data.dailyPrices;
     });
 };

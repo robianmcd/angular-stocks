@@ -27,7 +27,7 @@ db.once('open', function callback() {
 app.get('/api/stocks/info', function(req, res) {
 
     StockInfo.find(function(err, docs) {
-        if (err) return console.error(err);
+        if (err) return res.status(500).send(err);
 
         res.send(docs);
     });
@@ -36,10 +36,10 @@ app.get('/api/stocks/info', function(req, res) {
 
 
 app.get('/api/stocks/price/:symbol', function(req, res) {
-    StockPrices.findOne({symbol: req.params.symbol}, function(err, doc) {
-        if (err) return console.error(err);
+    StockPrices.findOne({symbol: req.params.symbol}, function(err, stockPriceInfo) {
+        if (!stockPriceInfo) return res.status(404).send('Symbol not found');
         
-        res.send(doc);
+        res.send(stockPriceInfo);
     });
 });
 
