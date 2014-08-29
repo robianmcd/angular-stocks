@@ -4,12 +4,10 @@ app.config(['$routeProvider',
   function ($routeProvider) {
       $routeProvider
         .when('/overview', {
-            templateUrl: 'pages/overview/overview.html',
-            order: 0
+            templateUrl: 'pages/overview/overview.html'
         })
         .when('/details', {
-            templateUrl: 'pages/details/details.html',
-            order: 1
+            templateUrl: 'pages/details/details.html'
         })
         .otherwise({
             redirectTo: '/overview'

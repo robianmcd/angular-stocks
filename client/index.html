@@ -10,20 +10,20 @@
     <div class="container">
         <div class="navbar navbar-default" role="navigation" bs-navbar>
             <div class="navbar-header">
-                <a class="navbar-brand" href="#/overview" ng-click="viewAnimation = 'slide-right'">MyStocks</a>
+                <a class="navbar-brand" href="#/overview">MyStocks</a>
             </div>
             <ul class="nav navbar-nav">
                 <li data-match-route="/overview">
-                    <a href="#/overview" ng-click="viewAnimation = 'slide-right'">Overview</a>
+                    <a href="#/overview">Overview</a>
                 </li>
                 <li data-match-route="/details">
-                    <a href="#/details" ng-click="viewAnimation = 'slide-left'">Details</a>
+                    <a href="#/details">Details</a>
                 </li>
             </ul>
         </div>
 
         <div style="position:relative;">
-            <ng-view ng-class="viewAnimation" class="slide"></ng-view>
+            <ng-view></ng-view>
         </div>
         
     </div>

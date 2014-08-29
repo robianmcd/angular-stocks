@@ -32,11 +32,6 @@ DetailsCtrl.prototype.loadStockPricesForSymbol = function(symbol) {
     var _this = this;
 
     this.$http.get('api/stocks/price/' + symbol).success(function(data) {
-        _this.rowAnimateClass = '';
-        _this.$timeout(function() {
-            _this.rowAnimateClass = 'row-slide-end';
-        }, 100);
-
         _this.dailyPrices = data.dailyPrices;
     });
 };
