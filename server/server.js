@@ -11,7 +11,7 @@ var StockInfo = require('./models/stockInfo')(mongoose);
 var StockPrices = require('./models/stockPrices')(mongoose);
 
 //Middleware
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + '/../build'));
 
 
 //Database setup
@@ -23,9 +23,9 @@ db.once('open', function callback() {
 
 
 //Endpoints
-app.get('/api/stocks/info', function(req, res) {
+app.get('/api/stocks/info', function (req, res) {
 
-    StockInfo.find(function(err, docs) {
+    StockInfo.find(function (err, docs) {
         if (err) return res.status(500).send(err);
 
         res.send(docs);
@@ -34,16 +34,16 @@ app.get('/api/stocks/info', function(req, res) {
 });
 
 
-app.get('/api/stocks/price/:symbol', function(req, res) {
-    StockPrices.findOne({symbol: req.params.symbol}, function(err, stockPriceInfo) {
+app.get('/api/stocks/price/:symbol', function (req, res) {
+    StockPrices.findOne({symbol: req.params.symbol}, function (err, stockPriceInfo) {
         if (!stockPriceInfo) return res.status(404).send('Symbol not found');
-        
+
         res.send(stockPriceInfo);
     });
 });
 
 
 //Start
-var server = app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
+var server = app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function () {
     console.log('Listening on port %d', server.address().port);
 });

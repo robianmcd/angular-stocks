@@ -23,6 +23,8 @@ var DetailsCtrl = function($http, $location, $timeout, $rootScope) {
 
 };
 
+DetailsCtrl.$inject = ['$http', '$location', '$timeout', '$rootScope'];
+
 DetailsCtrl.prototype.onSelectedStockChange = function() {
     this.$rootScope.viewAnimation = '';
     this.$location.search('symbol', this.selectedStockInfo.symbol);
