@@ -1,3 +1,5 @@
+/// <reference path="../../../typeDefs/angular/angular.d.ts" />
+
 var OverviewCtrl = (function () {
     function OverviewCtrl($http, $location) {
         var _this = this;
@@ -8,9 +10,7 @@ var OverviewCtrl = (function () {
     }
     OverviewCtrl.prototype.goToStockDetails = function (stockInfo) {
         this.$location.path('details').search('symbol', stockInfo.symbol);
-
-        this.$location.path();
     };
     return OverviewCtrl;
 })();
-//@ sourceMappingURL=overviewCtrl.js.map
+//# sourceMappingURL=overviewCtrl.js.map
