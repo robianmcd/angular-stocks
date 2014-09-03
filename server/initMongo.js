@@ -105,7 +105,6 @@ if (process.env.mongoUrl === 'mongodb://0.0.0.0/angularStocks') {
         
     });
     
-    console.log(mockStockInfo);
 }
 
 var generateDailyPrices = function() {

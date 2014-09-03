@@ -10,7 +10,6 @@ mongoose.connect(process.env.mongoUrl);
 var StockInfo = require('./models/stockInfo')(mongoose);
 var StockPrices = require('./models/stockPrices')(mongoose);
 
-
 //Middleware
 app.use(express.static(__dirname + '/../client'));
 
