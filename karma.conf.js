@@ -10,6 +10,7 @@ module.exports = function(config) {
       'client/bower/angular/angular.js',
       'client/bower/angular-route/angular-route.js',
       'client/bower/angular-animate/angular-animate.js',
+      'client/bower/angular-mocks/angular-mocks.js',
       'client/bower/angular-strap/dist/angular-strap.js',
       'client/bower/angular-strap/dist/angular-strap.tpl.js',
       'client/*.js',
