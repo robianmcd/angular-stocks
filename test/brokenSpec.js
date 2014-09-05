@@ -1,5 +1,5 @@
 /* global describe, it, expect */
-/* global getDayName, factors, getWhitespaceCharacterName, ListFilter, add, isZero */
+/* global getDayName, factors, getWhitespaceCharacterName, ListFilter, add, isTen */
 
 describe('Broken.js', function() {
     
