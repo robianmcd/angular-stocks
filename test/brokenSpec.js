@@ -1,11 +1,30 @@
+/* global describe, it, expect */
+/* global getDayName, factors, getWhitespaceCharacterName, ListFilter, add, isZero */
+
 describe('Broken.js', function() {
     
-    it('doubleANum() should double 2', function() {
-        expect(doubleANum(2)).toBe(4);
+    it('getDayName() should return \'Monday\' for September 15 2014', function() {
+        expect(getDayName(new Date(2014, 8, 15))).toBe('Monday');
     });
     
-        it('doubleANum() should double 21', function() {
-        expect(doubleANum(21)).toBe(42);
+    it('add() should add 0 and 1', function() {
+        expect(add(0,1)).toBe(1);
+    });
+    
+    it('add() should add -3 and 7', function() {
+        expect(add(-3,7)).toBe(4);
+    });
+    
+    it('isTen() should itentify 11 as not 10', function() {
+        expect(isTen(11)).toBe(false);
+    })
+
+    it('factors() should return the factors of 12', function() {
+        expect(factors(12)).toEqual([1,2,3,4,6,12]);
+    });
+    
+    it('factors() should return the factors of 0', function() {
+        expect(factors(0)).toEqual([]);
     });
 
 
@@ -24,5 +43,5 @@ describe('Broken.js', function() {
         var filteredList = abcFilter.apply(['abc', 'abX', '1abc2']);
         
         expect(filteredList).toEqual(['abc', '1abc2']);
-    })
+    });
 });
