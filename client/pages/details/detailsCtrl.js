@@ -12,10 +12,10 @@ var DetailsCtrl = function($http, $location, $timeout, $rootScope) {
 
         if (searchedSymbol) {
             _this.selectedStockInfo = _this.stocksInfo.filter(
-
-            function(stockInfo) {
-                return stockInfo.symbol === searchedSymbol
-            })[0];
+                function(stockInfo) {
+                    return stockInfo.symbol === searchedSymbol
+                }
+            )[0];
             _this.loadStockPricesForSymbol(searchedSymbol);
         }
 
