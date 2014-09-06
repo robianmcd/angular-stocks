@@ -17,43 +17,35 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
-    // Project meta
+    // Project settings
     pkg: require('./package.json'),
     bower: require('./bower.json'),
-    meta: {
-      banner: '/**\n' +
-      ' * <%= pkg.name %>\n' +
-      ' * @version v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      ' * @link <%= pkg.homepage %>\n' +
-      ' * @author <%= pkg.author.name %> (<%= pkg.author.email %>)\n' +
-      ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
-      ' */\n'
-    },
-
-    // Project settings
     yo: {
-      // Configurable paths
-      src: require('./bower.json').appPath || 'src',
+      src: 'src',
       dist: 'dist',
       docs: 'docs',
       pages: 'pages'
     },
 
+    // Project meta
+    meta: {
+      banner: '/**\n' +
+      ' * <%= pkg.name %>\n' +
+      ' * @version v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+      ' * @link <%= pkg.homepage %>\n' +
+      ' * @author <%= pkg.author.name %> <<%= pkg.author.email %>>\n' +
+      ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
+      ' */\n'
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      js: {
-        files: ['{.tmp,<%= yo.src %>}/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all']
-      },
-      jsTest: {
-        files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
-      },
+
       styles: {
         options: {
           spawn: false
         },
-        files: ['{docs,<%= yo.src %>}/styles/{,*/}*.less'],
+        files: ['src/{,*/}*.less', 'docs/styles/{,*/}*.less'],
         tasks: ['less:dev', 'autoprefixer']
       },
       gruntfile: {
@@ -64,9 +56,9 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '{docs,.dev,<%= yo.src %>}/{,*/}{,docs/}*.html',
-          '{docs,.tmp,<%= yo.src %>}/{,*/}*.css',
-          '{docs,.dev,.tmp,<%= yo.src %>}/{,*/}{,docs/}*.js',
+          '{docs,.dev,.tmp,<%= yo.src %>}/{,*/}{,docs/}*.html',
+          '{docs,.dev,.tmp,<%= yo.src %>}/{,*/}*.css',
+          '{docs,.dev,.tmp,<%= yo.src %>}/{,*/}*.js',
           '{docs,<%= yo.src %>}/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -76,29 +68,19 @@ module.exports = function (grunt) {
     connect: {
       options: {
         port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
         hostname: '0.0.0.0',
         livereload: 35729
       },
       livereload: {
         options: {
           open: true,
-          base: [
-            '.tmp',
-            '.dev',
-            'docs',
-            '<%= yo.src %>'
-          ]
+          base: ['docs', '.dev', '.tmp', '<%= yo.src %>']
         }
       },
       test: {
         options: {
           port: 9001,
-          base: [
-            '.tmp',
-            'test',
-            '<%= yo.src %>'
-          ]
+          base: ['.tmp',  'test', '<%= yo.src %>']
         }
       },
       dist: {
@@ -153,18 +135,36 @@ module.exports = function (grunt) {
 
     // Compile less stylesheets
     less: {
-      options: {
-      },
       dev: {
         options: {
-          dumpLineNumbers: 'comments',
+          // dumpLineNumbers: 'comments',
         },
         files: [{
           expand: true,
-          cwd: '<%= yo.docs %>/styles/',
-          src: '*.less',
-          dest: '.tmp/styles/',
+          flatten: true,
+          cwd: '<%= yo.src %>/',
+          src: '{,*/}*.less',
+          dest: '.tmp/styles/modules/',
           ext: '.css'
+        }, {
+          src: '<%= yo.src %>/{,*/}*.less',
+          dest: '.tmp/styles/<%= bower.name %>.css',
+        }]
+      },
+      dist: {
+        options: {
+          cleancss: true
+        },
+        files: [{
+          expand: true,
+          flatten: true,
+          cwd: '<%= yo.src %>/',
+          src: '{,*/}*.less',
+          dest: '.tmp/styles/modules/',
+          ext: '.min.css'
+        }, {
+          src: '<%= yo.src %>/{,*/}*.less',
+          dest: '.tmp/styles/<%= bower.name %>.min.css',
         }]
       },
       docs: {
@@ -186,7 +186,7 @@ module.exports = function (grunt) {
       options: {
         browsers: ['last 2 versions']
       },
-      dist: {
+      all: {
         files: [{
           expand: true,
           cwd: '.tmp/styles/',
@@ -244,32 +244,14 @@ module.exports = function (grunt) {
       }
     },
 
-    // Renames files for browser caching purposes
-    rev: {
-      dist: {
-        files: {
-          src: [
-            '<%= yo.pages %>/scripts/{,*/}*.js',
-            '<%= yo.pages %>/styles/{,*/}*.css',
-            '<%= yo.pages %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yo.pages %>/styles/fonts/*'
-          ]
-        }
-      }
-    },
-
     // Copies remaining files to places other tasks can use
     copy: {
-      static: {
+      dist: {
         files: [{
           expand: true,
-          cwd: '<%= yo.pages %>',
-          dest: '<%= yo.pages %>/static',
-          src: [
-            'images/{,*/}*.png',
-            'scripts/{,*/}*.js',
-            'styles/{,*/}*.css'
-          ]
+          cwd: '.tmp/styles/',
+          dest: '<%= yo.dist %>',
+          src: '{,*/}*.css'
         }]
       },
       docs: {
@@ -281,17 +263,6 @@ module.exports = function (grunt) {
             'images/*',
             '1.0/**/*'
           ]
-        }, {
-          src: 'bower_components/angular-motion/dist/angular-motion.css',
-          dest: '<%= yo.pages %>/styles/angular-motion.css'
-        }, {
-          src: '.tmp/styles/bootstrap-additions.css',
-          dest: '<%= yo.pages %>/styles/bootstrap-additions.css'
-        }, {
-          expand: true,
-          cwd: '<%= yo.dist %>',
-          dest: '<%= yo.pages %>/dist',
-          src: '{,*/}*.{js,map}'
         }]
       }
     },
@@ -349,7 +320,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yo.dist %>',
-          src: '{,*/}*.js',
+          src: '{,*/}*.{js,css}',
           dest: '<%= yo.dist %>'
         }]
       },
@@ -395,76 +366,25 @@ module.exports = function (grunt) {
     },
 
     ngtemplates:  {
-      test: {
-        options:  {
-          module: function(src) { return 'mgcrea.ngStrap.' + src.match(/src\/(.+)\/.*/)[1]; },
-          url: function(url) { return url.replace('src/', ''); },
-          htmlmin: { collapseWhitespace: true },
-          usemin: 'scripts/angular-strap.tpl.min.js' // docs
-        },
-        files: [{
-          expand: true,
-          flatten: true,
-          cwd: '<%= yo.src %>',
-          src: '{,*/}/*.tpl.html',
-          dest: '.tmp/templates',
-          ext: '.tpl.js'
-        }]
-      },
-      dist: {
-        options:  {
-          module: function(src) { return 'mgcrea.ngStrap.' + src.match(/src\/(.+)\/.*/)[1]; },
-          url: function(url) { return url.replace('src/', ''); },
-          htmlmin: { collapseWhitespace: true },
-        },
-        files: [{
-          expand: true,
-          flatten: true,
-          cwd: '<%= yo.src %>',
-          src: '{,*/}/*.tpl.html',
-          dest: '<%= yo.dist %>/modules',
-          ext: '.tpl.js'
-        }]
-      },
       docs: {
         options:  {
-          module: 'mgcrea.ngStrapDocs',
+          module: 'mgcrea.ngMotionDocs',
           usemin: 'scripts/docs.tpl.min.js'
         },
         files: [{
           cwd: '<%= yo.src %>',
           src: '{,*/}docs/*.html',
-          dest: '.tmp/templates/scripts/src-docs.js'
+          dest: '.tmp/ngtemplates/src-docs.tpl.js'
         },
         {
           cwd: '<%= yo.docs %>',
-          // src: 'views/{,*/}*.html',
-          src: 'views/{aside,sidebar}.html',
-          dest: '.tmp/templates/scripts/docs-views.js'
-        }
-        ]
-      }
-    },
-
-    uglify: {
-      dist: {
-        options: {
-          report: 'gzip',
-          sourceMap: '<%= yo.dist %>/<%= pkg.name %>.min.map',
-          sourceMappingURL: '<%= pkg.name %>.min.map'
+          src: 'views/sidebar.html',
+          dest: '.tmp/ngtemplates/docs-views.tpl.js'
         },
-        files: [{
-          expand: true,
-          cwd: '<%= yo.dist %>',
-          src: '{,*/}*.js',
-          dest: '<%= yo.dist %>',
-          ext: '.min.js'
-        }, {
-          expand: true,
-          cwd: '<%= yo.dist %>',
-          src: '{,*/}*.tpl.js',
-          dest: '<%= yo.dist %>',
-          ext: '.tpl.min.js'
+        {
+          cwd: '<%= yo.docs %>',
+          src: 'views/partials/{,*/}*.html',
+          dest: '.tmp/ngtemplates/docs-partials.tpl.js'
         }]
       }
     },
@@ -476,24 +396,23 @@ module.exports = function (grunt) {
         browsers: ['PhantomJS']
       },
       unit: {
-        options: {
-          reporters: ['dots', 'coverage']
-        },
         singleRun: true,
+        options: {
+          reporters: ['dots']
+        }
       },
       server: {
-        options: {
-          reporters: ['progress']
-        },
         autoWatch: true
       }
     },
 
-    coveralls: {
-      options: {
-        /*jshint camelcase: false */
-        coverage_dir: 'test/coverage/PhantomJS 1.9.7 (Linux)/',
-        force: true
+    uglify: {
+      generated: {
+        options: {
+          compress: false,
+          mangle: false,
+          beautify: true
+        }
       }
     }
 
@@ -507,7 +426,6 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'ngtemplates:test',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -517,31 +435,26 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    // 'concurrent:test',
-    // 'autoprefixer',
-    'ngtemplates:test',
     'connect:test',
     'karma:unit'
   ]);
 
   grunt.registerTask('build', [
     'clean:dist',
-    'ngtemplates:dist',
-    'concat:dist',
-    'ngmin:dist',
-    'ngmin:modules',
-    'uglify:dist',
+    'less:dev',
+    'less:dist',
+    'autoprefixer',
+    'copy:dist',
     'concat:banner'
   ]);
 
   grunt.registerTask('docs', [
     'clean:docs',
     'useminPrepare',
-    // 'concurrent:docs',
+    'less:dev',
     'less:docs',
     'autoprefixer',
     'nginclude:docs',
-    'ngtemplates:test',
     'ngtemplates:docs',
     'concat:generated',
     'ngmin:docs',
@@ -549,8 +462,6 @@ module.exports = function (grunt) {
     'cssmin:generated',
     'uglify:generated',
     'concat:docs',
-    'copy:static',
-    'rev',
     'usemin',
     // 'htmlmin:docs' // breaks code preview
   ]);
