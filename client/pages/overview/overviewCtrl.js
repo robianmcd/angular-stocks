@@ -3,7 +3,7 @@ var OverviewCtrl = function ($http, $location, $rootScope) {
     this.$location = $location;
     this.$rootScope = $rootScope;
 
-    $http.get('api/stocks/info').success(function (data) {
+    $http.get('/api/stocks/info').success(function (data) {
         _this.stocksInfo = data;
     });
 };
