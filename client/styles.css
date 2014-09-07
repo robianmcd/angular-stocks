@@ -1,0 +1,148 @@
+/* line 3, styles.scss */
+.shadow {
+  -moz-box-shadow: #000 5px 5px 5px;
+  -webkit-box-shadow: #000 5px 5px 5px;
+  box-shadow: #000 5px 5px 5px;
+}
+
+/* line 7, styles.scss */
+table.table-colourful {
+  border: 2px solid black;
+}
+/* line 2, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_scaffolding.scss */
+table.table-colourful th {
+  text-align: center;
+  font-weight: bold;
+}
+/* line 5, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_scaffolding.scss */
+table.table-colourful td,
+table.table-colourful th {
+  padding: 2px;
+}
+/* line 8, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_scaffolding.scss */
+table.table-colourful td.numeric,
+table.table-colourful th.numeric {
+  text-align: right;
+}
+/* line 16, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful th, table.table-colourful td {
+  border-right: 1px solid #203e4f;
+  border-bottom: 1px solid #203e4f;
+  border-left-width: 0;
+  border-top-width: 0;
+}
+/* line 22, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful th:last-child, table.table-colourful td:last-child {
+  border-right-width: 0;
+}
+/* line 28, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful th.last, table.table-colourful td.last {
+  border-right-width: 0;
+}
+/* line 33, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful tbody tr:last-child th, table.table-colourful tbody tr:last-child td, table.table-colourful tfoot tr:last-child th, table.table-colourful tfoot tr:last-child td {
+  border-bottom-width: 0;
+}
+/* line 37, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful tbody tr.last th, table.table-colourful tbody tr.last td, table.table-colourful tfoot tr.last th, table.table-colourful tfoot tr.last td {
+  border-bottom-width: 0;
+}
+/* line 6, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful thead th {
+  border-bottom: 2px solid black;
+}
+/* line 9, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful tfoot th, table.table-colourful tfoot td {
+  border-top: 2px solid black;
+}
+/* line 12, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful th:first-child {
+  border-right: 2px solid black;
+}
+/* line 2, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful th {
+  background-color: white;
+}
+/* line 4, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful th.even, table.table-colourful th:nth-child(2n) {
+  background-color: #dddddd;
+}
+/* line 8, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.odd td, table.table-colourful tr:nth-child(2n+1) td {
+  background-color: #75c6bb;
+}
+/* line 10, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.odd td.even, table.table-colourful tr.odd td:nth-child(2n), table.table-colourful tr:nth-child(2n+1) td.even, table.table-colourful tr:nth-child(2n+1) td:nth-child(2n) {
+  background-color: #53a499;
+}
+/* line 14, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.even td {
+  background-color: #75a9c6;
+}
+/* line 16, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.even td.even, table.table-colourful tr.even td:nth-child(2n) {
+  background-color: #5387a4;
+}
+/* line 19, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tfoot th, table.table-colourful tfoot td {
+  background-color: white;
+}
+/* line 21, ../../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tfoot th.even, table.table-colourful tfoot th:nth-child(2n), table.table-colourful tfoot td.even, table.table-colourful tfoot td:nth-child(2n) {
+  background-color: #dddddd;
+}
+
+/* line 15, styles.scss */
+.slide {
+  position: absolute;
+  width: 100%;
+}
+
+/* line 20, styles.scss */
+.slide-left.ng-enter, .slide-left.ng-leave,
+.slide-right.ng-enter, .slide-right.ng-leave {
+  transition-duration: 500ms;
+}
+
+/* line 25, styles.scss */
+.slide-left.ng-enter,
+.slide-right.ng-leave.ng-leave-active {
+  left: 100%;
+  opacity: 0;
+}
+
+/* line 31, styles.scss */
+.slide-left.ng-enter.ng-enter-active,
+.slide-left.ng-leave,
+.slide-right.ng-enter.ng-enter-active,
+.slide-right.ng-leave {
+  left: 0;
+  opacity: 1;
+}
+
+/* line 39, styles.scss */
+.slide-left.ng-leave.ng-leave-active,
+.slide-right.ng-enter {
+  left: -100%;
+  opacity: 0;
+}
+
+/* line 45, styles.scss */
+.row-slide {
+  transition-duration: 400ms;
+  position: relative;
+  left: 40px;
+  opacity: 0;
+}
+
+/* line 53, styles.scss */
+.row-slide-end {
+  left: 0;
+  opacity: 1;
+}
+
+/* line 58, styles.scss */
+.row-slide-end-add-stagger {
+  transition-delay: 50ms;
+  transition-duration: 0;
+}

@@ -1,5 +1,17 @@
 @import "compass";
 
+.shadow {
+  @include box-shadow(#000 5px 5px 5px);
+}
+
+table.table-colourful {
+  $table-color: #75a9c6;
+  @include table-scaffolding;
+  @include inner-table-borders(1px, darken($table-color, 40%));
+  @include outer-table-borders(2px);
+  @include alternating-rows-and-columns($table-color, adjust-hue($table-color, -30deg), #222222);
+}
+
 .slide {
   position: absolute;
   width: 100%;

@@ -9,7 +9,7 @@
         </div>
     </form>
 
-    <table class="table table-hover">
+    <table class="table table-hover table-colourful">
         <thead>
             <tr>
                 <th>Name</th>
@@ -21,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="squish" ng-repeat="stockInfo in ctrl.stocksInfo | filter:ctrl.search" ng-click="ctrl.goToStockDetails(stockInfo)">
+            <tr class="squish" ng-repeat="stockInfo in ctrl.stocksInfo | filter:ctrl.search" ng-click="ctrl.goToStockDetails(stockInfo)" ng-class="{odd: ($index%2), even: !($index%2)}">
                 <td>{{stockInfo.name}}</td>
                 <td>{{stockInfo.symbol}}</td>
                 <td>{{stockInfo.change}}</td>
