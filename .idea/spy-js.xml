@@ -14,6 +14,19 @@
           <event-filter-condition type="file" value="*\\node_modules\\express\\*" />
         </event-filter-conditions>
       </event-filter>
+      <event-filter name="No jasmine">
+        <event-filter-conditions>
+          <event-filter-condition type="file" value="http://localhost:9876/absolutec:/Rob/Dropbox/Repos/angular-stocks/node_modules/karma-jasmine/lib/jasmine.js" />
+          <event-filter-condition type="file" value="http://localhost:9876/base/client/bower/angular-mocks/angular-mocks.js" />
+          <event-filter-condition type="file" value="http://localhost:9876/absolutec:/Rob/Dropbox/Repos/angular-stocks/node_modules/karma-jasmine/lib/adapter.js" />
+          <event-filter-condition type="file" value="http://localhost:9876/base/client/bower/angular/angular.js" />
+          <event-filter-condition type="file" value="http://localhost:9876/base/client/bower/angular-strap/dist/angular-strap.js" />
+          <event-filter-condition type="file" value="http://localhost:9876/base/client/bower/angular-route/angular-route.js" />
+          <event-filter-condition type="file" value="http://localhost:9876/base/client/bower/angular-animate/angular-animate.js" />
+          <event-filter-condition type="file" value="http://localhost:9876/base/client/bower/angular-strap/dist/angular-strap.tpl.js" />
+          <event-filter-condition type="file" value="http://localhost:9876/base/client/bower/jquery/dist/jquery.js" />
+        </event-filter-conditions>
+      </event-filter>
     </event-filters>
   </component>
 </project>

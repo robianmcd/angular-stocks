@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="karma.conf.js" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="$PROJECT_DIR$/karma.conf.js">
+    <envs>
+      <env name="PHANTOMJS_BIN" value="C:\Users\Rob\AppData\Roaming\npm\node_modules\phantomjs\lib\phantom\phantomjs.exe" />
+    </envs>
+    <RunnerSettings RunnerId="KarmaJavaScriptTestRunnerDebug" />
+    <RunnerSettings RunnerId="KarmaJavaScriptTestRunnerRun" />
+    <ConfigurationWrapper RunnerId="KarmaJavaScriptTestRunnerDebug" />
+    <ConfigurationWrapper RunnerId="KarmaJavaScriptTestRunnerRun" />
+    <method />
+  </configuration>
+</component>

@@ -17,7 +17,7 @@ describe('Broken.js', function() {
     
     it('isTen() should itentify 11 as not 10', function() {
         expect(isTen(11)).toBe(false);
-    })
+    });
 
     it('factors() should return the factors of 12', function() {
         expect(factors(12)).toEqual([1,2,3,4,6,12]);

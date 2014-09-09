@@ -1,15 +1,12 @@
 /*jshint eqeqeq:true*/
 
 function add(x, y) {
-    return
-    x + y;
+    return x + y;
 }
 
 function isTen(num) {
-    if (num = 10) {
-        return true;
-    }
-    return false;
+    return num === 10;
+
 }
 
 
@@ -18,15 +15,17 @@ function getDayName(date) {
     switch (date.getDay()) {
         case 0:
             day = "Sunday";
+            break;
         case 1:
             day = "Monday";
+            break;
         case 2:
             day = "Tuesday";
             break;
         default:
             day = "The rest of the week...";
     }
-    
+
     return day;
 }
 
@@ -37,11 +36,11 @@ function factors(num) {
         if (num % i === 0) {
             n_factors.push(i);
             if (num / i !== i) {
-                n_facotrs.push(num / i);
+                n_factors.push(num / i);
             }
         }
     }
-    n_factors.sort(function(a, b) {
+    n_factors.sort(function (a, b) {
         return a - b;
     }); // numeric sort
     return n_factors;
@@ -49,15 +48,15 @@ function factors(num) {
 
 
 function getWhitespaceCharacterName(char) {
-    if (char == '\t') {
+    if (char === '\t') {
         return 'tab';
     }
 
-    if (char == '\n') {
+    if (char === '\n') {
         return 'line feed';
     }
 
-    if (char == '\r') {
+    if (char === '\r') {
         return 'carriage return';
     }
 
@@ -65,21 +64,21 @@ function getWhitespaceCharacterName(char) {
 }
 
 
-var ListFilter = function(regexFilter) {
+var ListFilter = function (regexFilter) {
     this.regexFilter = regexFilter;
 };
 
 /*
-Takes an array of strings and filters out the elements
-that do not match regexFilter.
-Returns the resulting array.
-*/
-ListFilter.prototype.apply = function(list) {
-
+ Takes an array of strings and filters out the elements
+ that do not match regexFilter.
+ Returns the resulting array.
+ */
+ListFilter.prototype.apply = function (list) {
+    var _this = this;
 
     return list.filter(
-        function(element) {
-            return element.match(this.regexFilter);
+        function (element) {
+            return element.match(_this.regexFilter);
         }
     );
 };
