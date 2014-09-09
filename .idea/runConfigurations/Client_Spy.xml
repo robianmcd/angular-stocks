@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Client Spy" type="JavaScriptTraceType" factoryName="Spy-js" node="C:/Program Files/nodejs/node.exe" config="" has-config="false" system-proxy="true" proxy-port="3546">
+    <RunnerSettings RunnerId="JavaScriptTraceRunner" />
+    <ConfigurationWrapper RunnerId="JavaScriptTraceRunner" />
+    <method />
+  </configuration>
+</component>
