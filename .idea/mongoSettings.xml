@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MongoConfiguration">
+    <option name="serverConfigurations">
+      <list>
+        <ServerConfiguration>
+          <option name="connectOnIdeStartup" value="true" />
+          <option name="label" value="stocksDb" />
+          <option name="password" value="angular" />
+          <option name="serverUrls">
+            <list>
+              <option value="ds037627.mongolab.com:37627" />
+            </list>
+          </option>
+          <option name="userDatabase" value="heroku_app27052837" />
+          <option name="username" value="admin" />
+        </ServerConfiguration>
+      </list>
+    </option>
+    <option name="shellPath" value="C:\Program Files\MongoDB 2.6 Standard\bin\mongo.exe" />
+  </component>
+</project>
+

@@ -9,11 +9,11 @@
   "private": true,
   "directory": "client/bower",
   "dependencies": {
-    "angular": "~1.2.19",
-    "angular-route": "~1.2.19",
-    "angular-animate": "~1.2.19",
-    "angular-strap": "~2.0.3",
-    "jquery": "~2.1.1",
-    "bootstrap": "~3.2.0"
+    "angular": "1.2.23",
+    "angular-route": "1.2.23",
+    "angular-animate": "1.2.23",
+    "angular-strap": "2.0.3",
+    "jquery": "2.1.1",
+    "bootstrap": "3.2.0"
   }
 }
