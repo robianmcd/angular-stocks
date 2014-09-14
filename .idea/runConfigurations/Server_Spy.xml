@@ -1,6 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Server Spy" type="JavaScriptNodeJsTraceType" factoryName="Spy-js for Node.js" config="" node="C:/Program Files/nodejs/node.exe" node-params="" app="server/server.js" app-params="" working-dir="$PROJECT_DIR$" proxy-port="3547" pass-parent-env="true">
-    <envs />
+    <envs>
+      <env name="mongoUrl" value="mongodb://admin:angular@ds037627.mongolab.com:37627/heroku_app27052837" />
+    </envs>
     <RunnerSettings RunnerId="JavaScriptTraceRunner" />
     <ConfigurationWrapper RunnerId="JavaScriptTraceRunner" />
     <method />

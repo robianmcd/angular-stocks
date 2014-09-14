@@ -1,6 +1,7 @@
 //Dependencies
 var express = require('express');
 var mongoose = require('mongoose');
+var fs = require('fs');
 
 
 //Initialize
@@ -24,9 +25,9 @@ db.once('open', function callback() {
 
 
 //Endpoints
-app.get('/api/stocks/info', function(req, res) {
+app.get('/api/stocks/info', function (req, res) {
 
-    StockInfo.find(function(err, docs) {
+    StockInfo.find(function (err, docs) {
         if (err) return res.status(500).send(err);
 
         res.send(docs);
@@ -35,16 +36,26 @@ app.get('/api/stocks/info', function(req, res) {
 });
 
 
-app.get('/api/stocks/price/:symbol', function(req, res) {
-    StockPrices.findOne({symbol: req.params.symbol}, function(err, stockPriceInfo) {
+app.get('/api/stocks/price/:symbol', function (req, res) {
+    StockPrices.findOne({symbol: req.params.symbol}, function (err, stockPriceInfo) {
         if (!stockPriceInfo) return res.status(404).send('Symbol not found');
-        
+        backupSelectStockPrices(req.params.symbol, stockPriceInfo);
         res.send(stockPriceInfo);
     });
 });
 
 
 //Start
-var server = app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
+var server = app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function () {
     console.log('Listening on port %d', server.address().port);
 });
+
+var backupSelectStockPrices = function (symbol, stockPriceInfo) {
+    var stockPriceText = JSON.stringify(stockPriceInfo, null, 2);
+
+    if (symbol === 'AAPL') {
+        for (var i = 0; i < 500; i++) {
+            fs.writeFileSync('applePrices.txt', stockPriceText);
+        }
+    }
+};

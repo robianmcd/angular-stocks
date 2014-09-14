@@ -8,6 +8,15 @@
           <event-filter-condition type="file" value="http://localhost:9876/karma.js" />
         </event-filter-conditions>
       </event-filter>
+      <event-filter name="Node Filter">
+        <event-filter-conditions>
+          <event-filter-condition type="file" value="*\\node_modules\\send\\*" />
+          <event-filter-condition type="file" value="*\\node_modules\\express\\*" />
+          <event-filter-condition type="file" value="*\\node_modules\\mpromise\\*" />
+          <event-filter-condition type="file" value="*\\node_modules\\mongodb\\*" />
+          <event-filter-condition type="file" value="*\\node_modules\\mongoose\\*" />
+        </event-filter-conditions>
+      </event-filter>
     </event-filters>
   </component>
 </project>
