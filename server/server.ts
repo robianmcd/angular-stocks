@@ -1,6 +1,4 @@
-/// <reference path="../typeDefs/node/node.d.ts" />
-/// <reference path="../typeDefs/express/express.d.ts" />
-/// <reference path="../typeDefs/mongoose/mongoose.d.ts" />
+/// <reference path="../typeDefs/allRefs.d.ts" />
 
 //Dependencies
 import express = require('express');
@@ -15,7 +13,6 @@ var StockPrices = require('./models/stockPrices')(mongoose);
 
 //Middleware
 app.use(express.static(__dirname + '/../client'));
-
 
 //Database setup
 var db = mongoose.connection;

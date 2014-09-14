@@ -1,6 +1,4 @@
-/// <reference path="../typeDefs/node/node.d.ts" />
-/// <reference path="../typeDefs/express/express.d.ts" />
-/// <reference path="../typeDefs/mongoose/mongoose.d.ts" />
+/// <reference path="../typeDefs/allRefs.d.ts" />
 //Dependencies
 var express = require('express');
 var mongoose = require('mongoose');
