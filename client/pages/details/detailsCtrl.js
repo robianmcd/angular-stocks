@@ -24,8 +24,20 @@ var DetailsCtrl = function($http, $location, $timeout, $rootScope) {
 };
 
 DetailsCtrl.prototype.onSelectedStockChange = function() {
-    this.$rootScope.viewAnimation = '';
-    this.$location.search('symbol', this.selectedStockInfo.symbol);
+    if (this.isValidStockSymbol(this.selectedStockInfo.symbol)) {
+        this.$rootScope.viewAnimation = '';
+        this.$location.search('symbol', this.selectedStockInfo.symbol);
+    }
+};
+
+DetailsCtrl.prototype.isValidStockSymbol = function(symbol) {
+    var num = Math.random();
+
+    if (num < 0.4) {
+        this.dailyPrices = [[0,0]];
+        return false;
+    }
+    return true;
 };
 
 DetailsCtrl.prototype.loadStockPricesForSymbol = function(symbol) {
