@@ -2,3 +2,4 @@
 !.c9/project.settings
 /.idea/workspace.xml
 /.sass-cache
+node_modules/*
