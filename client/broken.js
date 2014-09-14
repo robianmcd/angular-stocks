@@ -15,10 +15,8 @@ function getDayName(date) {
     switch (date.getDay()) {
         case 0:
             day = "Sunday";
-            break;
         case 1:
             day = "Monday";
-            break;
         case 2:
             day = "Tuesday";
             break;
