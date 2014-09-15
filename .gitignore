@@ -4,3 +4,4 @@ node_modules
 /.idea/workspace.xml
 /build
 /.sass-cache
+/client/bower
