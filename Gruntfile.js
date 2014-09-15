@@ -14,12 +14,7 @@ module.exports = function (grunt) {
                 },
                 options: {
                     sourceMap: true,
-                    sourceMapIncludeSources: true,
-                    mangle: false,
-                    beautify: {
-                        width: 80,
-                        beautify: true
-                    }
+                    sourceMapIncludeSources: true
                 }
             }
         }

@@ -20,10 +20,10 @@ var gulp = require('gulp'),
 
 gulp.task('js', function () {
     return gulp.src(jsFiles)
-        //.pipe(sourcemaps.init())
-        //.pipe(concat('app.js'))
+        .pipe(sourcemaps.init())
+        .pipe(concat('app.js'))
         .pipe(uglify({outSourceMap: 'out.js.map'}))
-        //.pipe(sourcemaps.write())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(buildDir));
 });
 
