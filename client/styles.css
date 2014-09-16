@@ -1,50 +1,144 @@
+/* line 3, styles.scss */
+.shadow {
+  -webkit-box-shadow: black 5px 5px 5px;
+  -moz-box-shadow: black 5px 5px 5px;
+  box-shadow: black 5px 5px 5px;
+}
+
+/* line 7, styles.scss */
+table.table-colourful {
+  border: 2px solid black;
+}
+/* line 2, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+table.table-colourful th {
+  text-align: center;
+  font-weight: bold;
+}
+/* line 6, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+table.table-colourful td,
+table.table-colourful th {
+  padding: 2px;
+}
+/* line 8, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_scaffolding.scss */
+table.table-colourful td.numeric,
+table.table-colourful th.numeric {
+  text-align: right;
+}
+/* line 14, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful th, table.table-colourful td {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left-width: 0px;
+  border-top-width: 0px;
+}
+/* line 21, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful th:last-child, table.table-colourful th.last, table.table-colourful td:last-child, table.table-colourful td.last {
+  border-right-width: 0px;
+}
+/* line 29, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful tbody tr:last-child th, table.table-colourful tbody tr:last-child td, table.table-colourful tfoot tr:last-child th, table.table-colourful tfoot tr:last-child td {
+  border-bottom-width: 0px;
+}
+/* line 32, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful tbody tr.last th, table.table-colourful tbody tr.last td, table.table-colourful tfoot tr.last th, table.table-colourful tfoot tr.last td {
+  border-bottom-width: 0px;
+}
+/* line 4, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful thead th {
+  border-bottom: 2px solid black;
+}
+/* line 7, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful tfoot th, table.table-colourful tfoot td {
+  border-top: 2px solid black;
+}
+/* line 10, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_borders.scss */
+table.table-colourful th:first-child {
+  border-right: 2px solid black;
+}
+/* line 2, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful th {
+  background-color: white;
+}
+/* line 4, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful th.even, table.table-colourful th:nth-child(2n) {
+  background-color: #dddddd;
+}
+/* line 8, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.odd td, table.table-colourful tr:nth-child(2n+1) td {
+  background-color: #75c6bb;
+}
+/* line 10, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.odd td.even, table.table-colourful tr.odd td:nth-child(2n), table.table-colourful tr:nth-child(2n+1) td.even, table.table-colourful tr:nth-child(2n+1) td:nth-child(2n) {
+  background-color: #53a499;
+}
+/* line 14, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.even td {
+  background-color: #75a9c6;
+}
+/* line 16, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.even td.even, table.table-colourful tr.even td:nth-child(2n) {
+  background-color: #5387a4;
+}
+/* line 19, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tfoot th, table.table-colourful tfoot td {
+  background-color: white;
+}
+/* line 21, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tfoot th.even, table.table-colourful tfoot th:nth-child(2n), table.table-colourful tfoot td.even, table.table-colourful tfoot td:nth-child(2n) {
+  background-color: #dddddd;
+}
+
+/* line 16, styles.scss */
 .slide {
-    position:absolute;
-    width: 100%;
+  position: absolute;
+  width: 100%;
 }
 
+/* line 22, styles.scss */
 .slide-left.ng-enter, .slide-left.ng-leave,
-.slide-right.ng-enter, .slide-right.ng-leave
-{ 
-    transition-duration: 500ms;
+.slide-right.ng-enter, .slide-right.ng-leave {
+  transition-duration: 500ms;
 }
 
+/* line 27, styles.scss */
 .slide-left.ng-enter,
 .slide-right.ng-leave.ng-leave-active {
-    left: 100%;
-    opacity: 0;
+  left: 100%;
+  opacity: 0;
 }
 
+/* line 35, styles.scss */
 .slide-left.ng-enter.ng-enter-active,
 .slide-left.ng-leave,
 .slide-right.ng-enter.ng-enter-active,
-.slide-right.ng-leave
-{
-    left: 0;
-    opacity: 1;
+.slide-right.ng-leave {
+  left: 0;
+  opacity: 1;
 }
 
+/* line 41, styles.scss */
 .slide-left.ng-leave.ng-leave-active,
 .slide-right.ng-enter {
-    left: -100%;
-    opacity: 0;
+  left: -100%;
+  opacity: 0;
 }
 
+/* line 46, styles.scss */
 .row-slide {
-    transition-duration: 400ms;
-    position:relative;
-
-    left: 40px;
-    opacity: 0;
+  transition-duration: 400ms;
+  position: relative;
+  left: 40px;
+  opacity: 0;
 }
 
-
+/* line 54, styles.scss */
 .row-slide-end {
-    left: 0;
-    opacity: 1;
+  left: 0;
+  opacity: 1;
 }
 
+/* line 59, styles.scss */
 .row-slide-end-add-stagger {
-    transition-delay:50ms;
-    transition-duration: 0;
+  transition-delay: 50ms;
+  transition-duration: 0;
 }
