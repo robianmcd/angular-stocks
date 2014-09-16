@@ -2,6 +2,7 @@
   <library name="compass-library">
     <CLASSES>
       <root url="file://C:/ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1" />
+      <root url="file://C:/ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2" />
     </CLASSES>
     <SOURCES />
   </library>
