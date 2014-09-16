@@ -2,7 +2,11 @@ module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine'],
-    reporters: ['spec'],
+    reporters: ['spec', 'html'],
+    
+    htmlReporter: {
+      outputFile: 'test/report.html'
+    },
 
     // list of files / patterns to load in the browser
     files: [
