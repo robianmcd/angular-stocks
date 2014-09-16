@@ -55,27 +55,59 @@ table.table-colourful tfoot th, table.table-colourful tfoot td {
 table.table-colourful th:first-child {
   border-right: 2px solid black;
 }
+/* line 2, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful th {
+  background-color: white;
+}
+/* line 4, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful th.even, table.table-colourful th:nth-child(2n) {
+  background-color: #dddddd;
+}
+/* line 8, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.odd td, table.table-colourful tr:nth-child(2n+1) td {
+  background-color: #75c6bb;
+}
+/* line 10, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.odd td.even, table.table-colourful tr.odd td:nth-child(2n), table.table-colourful tr:nth-child(2n+1) td.even, table.table-colourful tr:nth-child(2n+1) td:nth-child(2n) {
+  background-color: #53a499;
+}
+/* line 14, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.even td {
+  background-color: #75a9c6;
+}
+/* line 16, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tr.even td.even, table.table-colourful tr.even td:nth-child(2n) {
+  background-color: #5387a4;
+}
+/* line 19, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tfoot th, table.table-colourful tfoot td {
+  background-color: white;
+}
+/* line 21, ../../../../ruby200/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/tables/_alternating-rows-and-columns.scss */
+table.table-colourful tfoot th.even, table.table-colourful tfoot th:nth-child(2n), table.table-colourful tfoot td.even, table.table-colourful tfoot td:nth-child(2n) {
+  background-color: #dddddd;
+}
 
-/* line 14, styles.scss */
+/* line 16, styles.scss */
 .slide {
   position: absolute;
   width: 100%;
 }
 
-/* line 20, styles.scss */
+/* line 22, styles.scss */
 .slide-left.ng-enter, .slide-left.ng-leave,
 .slide-right.ng-enter, .slide-right.ng-leave {
   transition-duration: 500ms;
 }
 
-/* line 25, styles.scss */
+/* line 27, styles.scss */
 .slide-left.ng-enter,
 .slide-right.ng-leave.ng-leave-active {
   left: 100%;
   opacity: 0;
 }
 
-/* line 33, styles.scss */
+/* line 35, styles.scss */
 .slide-left.ng-enter.ng-enter-active,
 .slide-left.ng-leave,
 .slide-right.ng-enter.ng-enter-active,
@@ -84,14 +116,14 @@ table.table-colourful th:first-child {
   opacity: 1;
 }
 
-/* line 39, styles.scss */
+/* line 41, styles.scss */
 .slide-left.ng-leave.ng-leave-active,
 .slide-right.ng-enter {
   left: -100%;
   opacity: 0;
 }
 
-/* line 44, styles.scss */
+/* line 46, styles.scss */
 .row-slide {
   transition-duration: 400ms;
   position: relative;
@@ -99,13 +131,13 @@ table.table-colourful th:first-child {
   opacity: 0;
 }
 
-/* line 52, styles.scss */
+/* line 54, styles.scss */
 .row-slide-end {
   left: 0;
   opacity: 1;
 }
 
-/* line 57, styles.scss */
+/* line 59, styles.scss */
 .row-slide-end-add-stagger {
   transition-delay: 50ms;
   transition-duration: 0;

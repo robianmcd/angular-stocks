@@ -4,3 +4,4 @@ node_modules
 /.idea/workspace.xml
 
 /.sass-cache
+/client/styles.css
