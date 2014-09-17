@@ -3,7 +3,7 @@
     <envs>
       <env name="mongoUrl" value="mongodb://admin:angular@ds037627.mongolab.com:37627/heroku_app27052837" />
     </envs>
-    <browser start="true" with-js-debugger="true" url="http://localhost:3000" />
+    <browser start="true" url="http://localhost:3000" />
     <RunnerSettings RunnerId="Basic" />
     <RunnerSettings RunnerId="debuggableProgram" />
     <ConfigurationWrapper RunnerId="Basic" />
