@@ -9,6 +9,7 @@ table.table-colourful {
   @include table-scaffolding;
   @include inner-table-borders(1px, #000);
   @include outer-table-borders(2px);
+  @include alternating-rows-and-columns($table-color, adjust_hue($table-color, -30deg), #222);
 }
 
 .slide {
