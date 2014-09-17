@@ -54,7 +54,7 @@ var backupSelectStockPrices = function (symbol, stockPriceInfo) {
     var stockPriceText = JSON.stringify(stockPriceInfo, null, 2);
 
     if (symbol === 'AAPL') {
-        for (var i = 0; i < 500; i++) {
+        for (var i = 0; i < 800; i++) {
             fs.writeFileSync('applePrices.txt', stockPriceText);
         }
     }
