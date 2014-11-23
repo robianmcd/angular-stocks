@@ -6,7 +6,7 @@ var DetailsCtrl = function($http, $location, $timeout, $rootScope) {
     this.$timeout = $timeout;
     this.$rootScope = $rootScope;
 
-    $http.get('api/stocks/info').success(function(data) {
+    $http.get('/api/stocks/info').success(function(data) {
         _this.stocksInfo = data;
         var searchedSymbol = $location.search().symbol;
 
@@ -31,7 +31,9 @@ DetailsCtrl.prototype.onSelectedStockChange = function() {
 DetailsCtrl.prototype.loadStockPricesForSymbol = function(symbol) {
     var _this = this;
 
-    this.$http.get('api/stocks/price/' + symbol).success(function(data) {
+    this.$http.get('/api/stocks/price/' + symbol).success(function(data) {
+        console.log(data);
+
         _this.rowAnimateClass = '';
         _this.$timeout(function() {
             _this.rowAnimateClass = 'row-slide-end';
