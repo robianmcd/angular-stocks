@@ -1,6 +1,6 @@
 /**
  * angular-strap
- * @version v2.0.3 - 2014-05-30
+ * @version v2.0.5 - 2014-08-07
  * @link http://mgcrea.github.io/angular-strap
  * @author Olivier Louvignes (olivier@mg-crea.com)
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -13,6 +13,7 @@ angular.module('mgcrea.ngStrap.typeahead', [
   var defaults = this.defaults = {
       animation: 'am-fade',
       prefixClass: 'typeahead',
+      prefixEvent: '$typeahead',
       placement: 'bottom-left',
       template: 'typeahead/typeahead.tpl.html',
       trigger: 'focus',
@@ -73,7 +74,7 @@ angular.module('mgcrea.ngStrap.typeahead', [
           if (parentScope)
             parentScope.$digest();
           // Emit event
-          scope.$emit('$typeahead.select', value, index);
+          scope.$emit(options.prefixEvent + '.select', value, index);
         };
         // Protected methods
         $typeahead.$isVisible = function () {
@@ -103,8 +104,11 @@ angular.module('mgcrea.ngStrap.typeahead', [
         $typeahead.$onKeyDown = function (evt) {
           if (!/(38|40|13)/.test(evt.keyCode))
             return;
-          evt.preventDefault();
-          evt.stopPropagation();
+          // Let ngSubmit pass if the typeahead tip is hidden
+          if ($typeahead.$isVisible()) {
+            evt.preventDefault();
+            evt.stopPropagation();
+          }
           // Select with enter
           if (evt.keyCode === 13 && scope.$matches.length) {
             $typeahead.select(scope.$activeIndex);
@@ -167,7 +171,9 @@ angular.module('mgcrea.ngStrap.typeahead', [
           'template',
           'filter',
           'limit',
-          'minLength'
+          'minLength',
+          'watchOptions',
+          'selectMode'
         ], function (key) {
           if (angular.isDefined(attr[key]))
             options[key] = attr[key];
@@ -183,18 +189,38 @@ angular.module('mgcrea.ngStrap.typeahead', [
         var parsedOptions = $parseOptions(ngOptions);
         // Initialize typeahead
         var typeahead = $typeahead(element, controller, options);
+        // Watch options on demand
+        if (options.watchOptions) {
+          // Watch ngOptions values before filtering for changes, drop function calls
+          var watchedOptions = parsedOptions.$match[7].replace(/\|.+/, '').replace(/\(.*\)/g, '').trim();
+          scope.$watch(watchedOptions, function (newValue, oldValue) {
+            // console.warn('scope.$watch(%s)', watchedOptions, newValue, oldValue);
+            parsedOptions.valuesFn(scope, controller).then(function (values) {
+              typeahead.update(values);
+              controller.$render();
+            });
+          }, true);
+        }
         // Watch model for changes
         scope.$watch(attr.ngModel, function (newValue, oldValue) {
           // console.warn('$watch', element.attr('ng-model'), newValue);
           scope.$modelValue = newValue;
           // Publish modelValue on scope for custom templates
           parsedOptions.valuesFn(scope, controller).then(function (values) {
+            // Prevent input with no future prospect if selectMode is truthy
+            // @TODO test selectMode
+            if (options.selectMode && !values.length && newValue.length > 0) {
+              controller.$setViewValue(controller.$viewValue.substring(0, controller.$viewValue.length - 1));
+              return;
+            }
             if (values.length > limit)
               values = values.slice(0, limit);
+            var isVisible = typeahead.$isVisible();
+            isVisible && typeahead.update(values);
             // Do not re-queue an update if a correct value has been selected
             if (values.length === 1 && values[0].value === newValue)
               return;
-            typeahead.update(values);
+            !isVisible && typeahead.update(values);
             // Queue a new rendering that will leverage collection loading
             controller.$render();
           });
