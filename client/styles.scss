@@ -1,0 +1,60 @@
+@import "compass";
+
+.shadow {
+  @include box-shadow(#000 5px 5px 5px);
+}
+
+table.table-colourful {
+  $table-color: #75a9c6;
+  @include table-scaffolding;
+  @include inner-table-borders(1px, #000);
+  @include outer-table-borders(2px);
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+}
+
+.slide-left.ng-enter, .slide-left.ng-leave,
+.slide-right.ng-enter, .slide-right.ng-leave {
+  transition-duration: 500ms;
+}
+
+.slide-left.ng-enter,
+.slide-right.ng-leave.ng-leave-active {
+  left: 100%;
+  opacity: 0;
+}
+
+.slide-left.ng-enter.ng-enter-active,
+.slide-left.ng-leave,
+.slide-right.ng-enter.ng-enter-active,
+.slide-right.ng-leave {
+  left: 0;
+  opacity: 1;
+}
+
+.slide-left.ng-leave.ng-leave-active,
+.slide-right.ng-enter {
+  left: -100%;
+  opacity: 0;
+}
+
+.row-slide {
+  transition-duration: 400ms;
+  position: relative;
+
+  left: 40px;
+  opacity: 0;
+}
+
+.row-slide-end {
+  left: 0;
+  opacity: 1;
+}
+
+.row-slide-end-add-stagger {
+  transition-delay: 50ms;
+  transition-duration: 0;
+}
