@@ -7,6 +7,7 @@ var OverviewCtrl = function ($http, $location, $rootScope) {
         _this.stocksInfo = data;
     });
 };
+    angular.module('stockApp').controller('OverviewCtrl', OverviewCtrl);
 
 OverviewCtrl.prototype.goToStockDetails = function (stockInfo) {
     this.$rootScope.viewAnimation = 'slide-left';
