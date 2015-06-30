@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 //Initialize
 var app = express();
-mongoose.connect(process.env.mongoUrl);
+mongoose.connect(process.env.mongoUrl || 'mongodb://admin:angular@ds037627.mongolab.com:37627/heroku_app27052837');
 
 var StockInfo = require('./models/stockInfo')(mongoose);
 var StockPrices = require('./models/stockPrices')(mongoose);
